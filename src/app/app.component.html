@@ -1,0 +1,15 @@
+<p>
+Test checkboxes
+</p>
+
+<div *ngFor="let country of countries; let i = index;">
+  <input type="checkbox" name="country{{country.id}}" [(ngModel)]="countries[i].checked">
+  <label for="country{{country.id}}">{{country.name}}</label>
+</div>
+
+<button type="button" (click)="sendCheckedCountries()">Click to send the selected countries (see your developper console)</button>
+
+<p *ngIf="!countries">loading countries, please wait a second...</p>
+<p *ngIf="countries">Debug info : live value of the 'countries' array:</p>
+
+<pre>{{ countries | json }}</pre>
